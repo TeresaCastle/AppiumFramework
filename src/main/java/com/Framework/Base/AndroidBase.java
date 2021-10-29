@@ -18,16 +18,18 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Reporter;
+import pageObjects.Android.AppHomePageObjects;
 
 public class AndroidBase {
+
     public static AppiumDriverLocalService service;
     public static AppiumDriver driver;
+    public static AssertionLogging softAssert = new AssertionLogging();
+    public static AppHomePageObjects android = new AppHomePageObjects();
 
     static {
         try {
@@ -40,10 +42,7 @@ public class AndroidBase {
     }
     //TODO another place that this is initialized redundantly..
 
-    public static AssertionLogging softAssert = new AssertionLogging();
-
     //This is where we set up Appium to run tests. Driver, Automation Environment, Device, App, etc.
-
     public static AppiumDriver capabilities() throws IOException, InterruptedException {
         // Creates a FileInputStream by opening a connection to an actual file, the file named by the path name in the file system
         //This defines where our Global Properties live, which we will reference in the code that follows
@@ -164,6 +163,6 @@ public class AndroidBase {
         }
         //Returning the element for use in other methods
         return element;
-    }
+    }//TODO look into making this dynamic and less redundant
 }
 

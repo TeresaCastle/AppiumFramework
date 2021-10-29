@@ -1,4 +1,4 @@
-import com.Framework.Base.IOSBase;
+import com.Framework.Base.iOSBase;
 import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.*;
@@ -7,14 +7,14 @@ import java.io.IOException;
 
 @Listeners(com.Framework.Listeners.Listeners.class)
 
-public class IOSTests extends IOSBase {
+public class iOSTests extends iOSBase {
 
     AppHomePageObjects ios = new AppHomePageObjects();
     AppiumDriver driver;
 
     {
         try {
-            driver = IOSBase.capabilities();
+            driver = iOSBase.capabilities();
         } catch (IOException e) {
             e.printStackTrace();
         }

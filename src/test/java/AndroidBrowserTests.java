@@ -1,26 +1,13 @@
 import com.Framework.Base.AndroidBrowserBase;
-import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pageObjects.Browser.AndroidPageObjects;
 import java.io.IOException;
 
 public class AndroidBrowserTests extends AndroidBrowserBase {
-    public static AndroidPageObjects chrome = new AndroidPageObjects();
-    public static AppiumDriver driver;
-
-    static {
-        try {
-            driver = AndroidBrowserBase.capabilities();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    //TODO Figure out why calling driver in the method returns a null pointer and requires the driver to be initialized in the class
 
     @Test (dataProvider= "BrowserTestData")
     public void checkWelcomeMessage(String expected) throws IOException, InterruptedException {
-//TODO test description and general consistency
+        //TODO test description and general consistency
         //Allowing the browser to open
         Thread.sleep(5000);
         // Telling the driver to navigate to a specific URL
@@ -35,7 +22,6 @@ public class AndroidBrowserTests extends AndroidBrowserBase {
         //This should be included in any method that contains assertions. SoftAssert is preferred over regular assertions
         softAssert.assertAll();
     }
-    //TODO adding Samsung Internet Browser capability - was getting errors that it was not on the emulator
 
     @DataProvider(name="BrowserTestData")
     public static Object[][] getWelcomeMessage()

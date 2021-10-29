@@ -8,16 +8,15 @@ import java.io.IOException;
 
 public class iOSBrowserTests extends iOSBrowserBase {
 
-    static AppiumDriver driver;
-    public static iOSPageObjects safari = new iOSPageObjects();
-
-    static {
-        try {
-            driver = iOSBrowserBase.capabilities();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    static AppiumDriver driver;
+//
+//    static {
+//        try {
+//            driver = iOSBrowserBase.capabilities();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
     //TODO why must this be initialized again
 
     @Test (dataProvider= "BrowserTestData")

@@ -1,11 +1,11 @@
 package pageObjects.IOS;
 
-import com.Framework.Base.IOSBase;
+import com.Framework.Base.iOSBase;
 import org.openqa.selenium.WebElement;
 
 import java.net.MalformedURLException;
 
-public class AppHomePageObjects extends IOSBase {
+public class AppHomePageObjects extends iOSBase {
 
     public static WebElement getButtonsButton() throws MalformedURLException {
         String xpath = "//XCUIElementTypeApplication[@name='UIKitCatalog']/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther";

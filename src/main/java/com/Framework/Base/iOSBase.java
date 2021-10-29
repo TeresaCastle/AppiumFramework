@@ -24,7 +24,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Reporter;
 
 
-public class IOSBase {
+public class iOSBase {
     public static AppiumDriverLocalService service;
     public static AppiumDriver  driver;
 

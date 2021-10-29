@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import pageObjects.Browser.AndroidPageObjects;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -16,12 +18,12 @@ import java.util.Objects;
 import java.util.Properties;
 
 public class AndroidBrowserBase {
-
+    public static AndroidPageObjects chrome = new AndroidPageObjects();
     public static AssertionLogging softAssert = new AssertionLogging();
 
     public static AppiumDriver driver;
 
-    static {
+    {
         try {
             driver = capabilities();
         } catch (IOException e) {
@@ -65,7 +67,7 @@ public class AndroidBrowserBase {
             //This sets up Chrome
             capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
         }
-        //TODO testing on samsung internet capabilities
+        //TODO testing on samsung internet capabilities, uncertain if driver capabilities are the same...
 
         //Setting up the driver
         String address=(String) prop.get("IP");
