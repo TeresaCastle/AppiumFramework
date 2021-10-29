@@ -2,13 +2,8 @@ import java.net.MalformedURLException;
 import com.Framework.Base.AndroidBase;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
-@Listeners(com.Framework.Listeners.Listeners.class)
-public class AndroidTests extends AndroidBase {
 
-    @AfterMethod
-    void afterMethod() {
-        driver.navigate().back();
-    }
+public class AndroidTests extends AndroidBase {
 
     // Below is a great example of using descriptions, groups, enabling/disabling, page objects and data providers
 //    //Note: The below parameterized test must be run from the XML file due to parameter dependencies
@@ -24,9 +19,7 @@ public class AndroidTests extends AndroidBase {
         //If the assertion fails it will print "Assertion: Checking animation button text <FAILED> "
         softAssert.assertEquals(android.getButtonText(desc), buttonText, message);
         //Pressing the "back" button on the device to return to the home screen
-        //driver.navigate().back();
-        //TODO: Creating this as an AfterTest to ensure we don't cause issues with screenshots
-
+        driver.navigate().back();
         //Causes an exception to be thrown if any assertions fail, failing the test and printing information on the failure
         //This should be included in any method that contains assertions. SoftAssert is preferred over regular assertions
         softAssert.assertAll();
@@ -38,9 +31,10 @@ public class AndroidTests extends AndroidBase {
         //Below you can see multiple data sets, which will run through the test multiple times
         Object[][] buttons=new Object[][]
                 {
-                        {"Accessibility", "Accessibility Node Provider", "Accessibility Node Provider", "Checking accessibility button text"},
-                        {"Animation", "Bouncing Balls", "Bouncing Balls", "Checking animation button text"}
+                        {"Accessibility", "Accessibility Node Provider", "Accessibility Node Provider1", "Checking accessibility button text"},
+                        {"Animation", "Bouncing Balls", "Bouncing Balls1", "Checking animation button text"}
                 };
+        //Returning the data object
         return buttons;
     }
 
@@ -48,7 +42,7 @@ public class AndroidTests extends AndroidBase {
     @DataProvider(name="ClickTestData2")
     public static Object[][] getButton2()
     {
-        Object[][] buttons=new Object[2][4]; //This shows the object as containing 2 rows and 3 columns
+        Object[][] buttons=new Object[2][4]; //This shows the object as containing 2 rows and 4 columns
 
         // The first set of  data
         buttons[0][0]="Accessibility";
@@ -62,6 +56,7 @@ public class AndroidTests extends AndroidBase {
         buttons[1][2]="Bouncing Balls";
         buttons[1][3]="Checking animation button text";
 
+        //Returning the data object
         return buttons;
     }
 }

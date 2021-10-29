@@ -10,6 +10,5 @@ public class WebBrowserTests extends WebBrowserBase {
         driver().get("https://linkedin.com");
         Thread.sleep(5000);
     }
-    //TODO Edge?
     //TODO example testing
 }

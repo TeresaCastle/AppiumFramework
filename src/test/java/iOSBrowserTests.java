@@ -8,17 +8,6 @@ import java.io.IOException;
 
 public class iOSBrowserTests extends iOSBrowserBase {
 
-//    static AppiumDriver driver;
-//
-//    static {
-//        try {
-//            driver = iOSBrowserBase.capabilities();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-    //TODO why must this be initialized again
-
     @Test (dataProvider= "BrowserTestData")
     public void checkWelcomeMessage(String expected) throws IOException, InterruptedException {
 //TODO test description and general consistency
@@ -43,6 +32,7 @@ public class iOSBrowserTests extends iOSBrowserBase {
                 {
                         {"Welcome to your professional community"}
                 };
+        //Returning the data object
         return expected;
     }
 }
