@@ -1,3 +1,4 @@
+import com.Framework.Base.AndroidBase;
 import com.Framework.Base.iOSBase;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.*;
@@ -11,6 +12,7 @@ public class iOSTests extends iOSBase {
     //Finding an element based on ID and clicking on it
     driver.findElementByAccessibilityId("Alert Views").click();
     driver.navigate().back();
+    iOSBase.swipeScreen(Direction.UP);
     softAssert.assertEquals(driver.findElementByAccessibilityId("Alert Views").getText(), "Alert View");
     softAssert.assertAll();
     }

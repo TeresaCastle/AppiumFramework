@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.net.MalformedURLException;
 import com.Framework.Base.AndroidBase;
+import com.Framework.Base.Base;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 
@@ -8,6 +10,12 @@ public class AndroidTests extends AndroidBase {
     // Below is a great example of using descriptions, groups, enabling/disabling, page objects and data providers
 //    //Note: The below parameterized test must be run from the XML file due to parameter dependencies
 //    @Parameters({"URL"}) // TODO: needs to be added as a string in the test method and used in the test
+
+//    @Parameters({"Platform"})
+//    @BeforeClass
+//    public void initDriver(String platform) throws IOException, InterruptedException {
+//        capabilities(platform);
+//    }
 
     @Test (groups= {"smoke"}, enabled = true, dataProvider= "ClickTestData", description = "Both buttons on the home screen lead to the correct page")
     public void checkButtonFunction(String buttonName, String desc, String buttonText, String message) throws InterruptedException, MalformedURLException {

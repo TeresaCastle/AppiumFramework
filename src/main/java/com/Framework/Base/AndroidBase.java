@@ -8,23 +8,16 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Properties;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import com.Framework.Listeners.AssertionLogging;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,7 +25,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Reporter;
 import pageObjects.Android.AppHomePageObjects;
 
-public class AndroidBase {
+public class AndroidBase extends Base {
 
     public static AppiumDriverLocalService service;
     public static AppiumDriver driver;

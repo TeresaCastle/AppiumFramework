@@ -6,7 +6,7 @@
         <listener class-name="com.Framework.Listeners.ExtentReporterNG"></listener>
     </listeners>
 <!--    <suite name="All Test Suite" parallel=""tests" thread-count="2">--> // This can be used to run tests in parallel - not recommended
-<!--    <parameter name="URL" value="exampleURL"></parameter> //TODO Create class specific parameter examples-->
+    <parameter name="Platform" value="android"></parameter> //TODO Create class specific parameter examples
     <test name="All Tests">
 <!--        <groups>-->
 <!--            <run>-->
@@ -23,7 +23,7 @@
                 <!--          <exclude name="/checkButtonFunction"/>-->
                 <!--        </methods>-->
             </class>
-            <class name="iOSTests"/>
+<!--            <class name="iOSTests"/>-->
 
             <!---NOTE! You must run the below browser test classes SEPARATELY from mobile automation as some of the capabilities are incompatible in Appium//-->
 <!--            <class name="AndroidBrowserTests"/>-->
