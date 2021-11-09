@@ -25,6 +25,8 @@ public class AssertionLogging extends SoftAssert {
             e.printStackTrace();
         }
 
+
+
         //Printing the assertion description and letting the user know it failed and why it failed
         String suffix =
                 String.format(

@@ -6,17 +6,25 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.URL;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import com.Framework.Listeners.AssertionLogging;
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,7 +48,6 @@ public class AndroidBase {
             e.printStackTrace();
         }
     }
-    //TODO another place that this is initialized redundantly..
 
     //This is where we set up Appium to run tests. Driver, Automation Environment, Device, App, etc.
     public static AppiumDriver capabilities() throws IOException, InterruptedException {
@@ -74,6 +81,9 @@ public class AndroidBase {
         //This defines how long Appium should wait for a new command from the client before assuming the client ended the session
         //Set to 0 to disable the timeout, but this isn't recommended as it allows automation sessions to continue indefinitely
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,30);
+
+        //EXPERIMENTAL and not needed potentially
+        capabilities.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 
         //Setting up the driver
         String address=(String) prop.get("IP");
@@ -141,7 +151,6 @@ public class AndroidBase {
 
         //Logging that a screenshot was captured in test output
         System.out.println("***** Screenshot Captured *****");
-        //TODO - see if its possible to add this to Extent Reports as well...
     }
 
     public static WebElement waitForElement(WebElement element, int timeOutSec, int pollingSec) {
@@ -164,5 +173,95 @@ public class AndroidBase {
         //Returning the element for use in other methods
         return element;
     }//TODO look into making this dynamic and less redundant
+
+    public void swipeToElement(WebElement element1, WebElement element2){
+        //TODO add a loop to the below swipeScreen method that checks for the presence of a specified element
+    }
+
+    //TODO add partial screen swipe method
+
+    //Performs swipe from the center of screen. Directions can be UP, DOWN, LEFT, and RIGHT
+    //Found on appium.io/docs - http://appium.io/docs/en/writing-running-appium/tutorial/swipe-tutorial/
+    public void swipeScreen(Direction dir) {
+        System.out.println("swipeScreen(): dir: '" + dir + "'"); // always log your actions
+        final int ANIMATION_TIME = 200; // ms
+        final int PRESS_TIME = 200; // ms
+        int edgeBorder = 10; //it's better to avoid edges
+        PointOption pointOptionStart, pointOptionEnd;
+
+        // init screen variables
+        Dimension dims = driver.manage().window().getSize();
+
+        // init start point = center of screen
+        pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
+
+        switch (dir) {
+            case DOWN: // center of footer
+                pointOptionEnd = PointOption.point(dims.width / 2, dims.height - edgeBorder);
+                break;
+            case UP: // center of header
+                pointOptionEnd = PointOption.point(dims.width / 2, edgeBorder);
+                break;
+            case LEFT: // center of left side
+                pointOptionEnd = PointOption.point(edgeBorder, dims.height / 2);
+                break;
+            case RIGHT: // center of right side
+                pointOptionEnd = PointOption.point(dims.width - edgeBorder, dims.height / 2);
+                break;
+            default:
+                throw new IllegalArgumentException("swipeScreen(): dir: '" + dir + "' NOT supported");
+        }
+
+        // execute swipe using TouchAction
+        try {
+            new TouchAction(driver)
+                    .press(pointOptionStart)
+                    // a bit more reliable when we add small wait
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(PRESS_TIME)))
+                    .moveTo(pointOptionEnd)
+                    .release().perform();
+        } catch (Exception e) {
+            System.err.println("swipeScreen(): TouchAction FAILED\n" + e.getMessage());
+            return;
+        }
+
+        // always allow swipe action to complete
+        try {
+            Thread.sleep(ANIMATION_TIME);
+        } catch (InterruptedException e) {
+            // ignore
+        }
+    }
+
+    public enum Direction {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT;
+    }
+
+    public boolean switchToWebContext() {
+        ArrayList<String> contexts = new ArrayList(driver.getContextHandles());
+        for (String context : contexts) {
+            System.out.println(context);
+            if (context.contains("WEBVIEW")) {
+                driver.context(context);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean switchToNativeContext() {
+        ArrayList<String> contexts = new ArrayList(driver.getContextHandles());
+        for (String context : contexts) {
+            System.out.println(context);
+            if (context.contains("NATIVE")) {
+                driver.context(context);
+                return true;
+            }
+        }
+        return false;
+    }
 }
 

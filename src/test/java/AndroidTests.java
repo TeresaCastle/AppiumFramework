@@ -32,7 +32,7 @@ public class AndroidTests extends AndroidBase {
         Object[][] buttons=new Object[][]
                 {
                         {"Accessibility", "Accessibility Node Provider", "Accessibility Node Provider1", "Checking accessibility button text"},
-                        {"Animation", "Bouncing Balls", "Bouncing Balls1", "Checking animation button text"}
+                        {"Animation", "Bouncing Balls", "Bouncing Balls", "Checking animation button text"}
                 };
         //Returning the data object
         return buttons;
@@ -58,6 +58,41 @@ public class AndroidTests extends AndroidBase {
 
         //Returning the data object
         return buttons;
+    }
+
+    //Below is an example of a test that uses context switching to automate a hybrid app
+    @Test (groups= {"smoke"}, enabled = true, description = "We are able to switch from native views to web views")
+    public void checkWebView() throws InterruptedException, MalformedURLException {
+
+        //Clicking on the "Views" button from the landing page
+        android.getViewsButton().click();
+
+        //Swiping the screen twice to scroll
+        swipeScreen(Direction.UP);
+        swipeScreen(Direction.UP);
+
+        //Clicking on the "WebView" button
+        android.getWebViewButton().click();
+
+        //Switching to WebView context so that we can interact in web view
+        switchToWebContext();
+
+        //Clicking the hyperlink in WebView
+        android.getHyperlink().click();
+
+        //Assertion to test that the correct text appears on the following Web View
+        softAssert.assertEquals(android.getWebViewTextElement().getText(), "I am some other page content", "Checking that the web view text is correct");
+
+        //Navigating back to the app
+        driver.navigate().back();
+        //Switching back to Native App Views for app interaction
+        switchToNativeContext();
+        //Navigating back to the landing page to reset for the next tests
+        driver.navigate().back();
+
+        //Causes an exception to be thrown if any assertions fail, failing the test and printing information on the failure
+        //This should be included in any method that contains assertions. SoftAssert is preferred over regular assertions
+        softAssert.assertAll();
     }
 }
 

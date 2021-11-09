@@ -22,16 +22,23 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Reporter;
+import pageObjects.IOS.AppHomePageObjects;
 
 
 public class iOSBase {
     public static AppiumDriverLocalService service;
-    public static AppiumDriver  driver;
-
-    //TODO fix this above
-
     public static AssertionLogging softAssert = new AssertionLogging();
     public static DesiredCapabilities capabilities = new DesiredCapabilities();
+    public static AppHomePageObjects ios = new AppHomePageObjects();
+    public static AppiumDriver driver;
+
+    {
+        try {
+            driver = iOSBase.capabilities();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static AppiumDriver capabilities() throws IOException {
 
@@ -130,7 +137,6 @@ public class iOSBase {
 
         //Logging that a screenshot was captured in test output
         System.out.println("***** Screenshot Captured *****");
-        //TODO - see if its possible to add this to Extent Reports as well...
     }
 
     public static WebElement waitForElement(WebElement element, int timeOutSec, int pollingSec) {

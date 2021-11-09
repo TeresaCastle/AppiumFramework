@@ -9,7 +9,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import pageObjects.Browser.AndroidPageObjects;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -50,7 +49,7 @@ public class AndroidBrowserBase {
         //Telling Appium that we are using Android Studio UI Automator to access the browser and run test automation on the app
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
         //Providing the capability name we are setting (Chrome Driver Executable ) as well as the file path to the chrome driver
-        capabilities.setCapability("chromedriverExecutable","/Users/madison.vincent/IdeaProjects/DemoFramework/src/main/resources/chromedriver");
+        capabilities.setCapability("chromedriverExecutable","/Users/madison.vincent/IdeaProjects/DemoFramework/src/main/resources/chromedriver 83");
         //Providing platform name
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         //Telling Appium not to re-install the browser app every time we test

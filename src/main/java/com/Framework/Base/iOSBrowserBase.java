@@ -130,7 +130,6 @@ public class iOSBrowserBase {
 
         //Logging that a screenshot was captured in test output
         System.out.println("***** Screenshot Captured *****");
-        //TODO - see if its possible to add this to Extent Reports as well...
     }
 
     public static WebElement waitForElement(WebElement element, int timeOutSec, int pollingSec) {

@@ -1,6 +1,5 @@
 import com.Framework.Base.WebBrowserBase;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 
 public class WebBrowserTests extends WebBrowserBase {

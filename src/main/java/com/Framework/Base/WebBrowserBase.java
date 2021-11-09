@@ -44,7 +44,7 @@ public class WebBrowserBase {
             System.setProperty(property, driverDir);
             driver = new EdgeDriver();
         }
-        //TODO separate testng.xml for webdriver versus mobile
+        //TODO separate testng.xml for webdriver versus mobile, executing multiple browsers at once?
         //returning the driver for use in testing
         return driver;
     }
