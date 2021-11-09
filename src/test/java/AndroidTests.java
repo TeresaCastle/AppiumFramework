@@ -1,21 +1,10 @@
-import java.io.IOException;
 import java.net.MalformedURLException;
-import com.Framework.Base.AndroidBase;
-import com.Framework.Base.Base;
+import com.framework.base.Base;
+import com.framework.base.Common.Direction;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 
-public class AndroidTests extends AndroidBase {
-
-    // Below is a great example of using descriptions, groups, enabling/disabling, page objects and data providers
-//    //Note: The below parameterized test must be run from the XML file due to parameter dependencies
-//    @Parameters({"URL"}) // TODO: needs to be added as a string in the test method and used in the test
-
-//    @Parameters({"Platform"})
-//    @BeforeClass
-//    public void initDriver(String platform) throws IOException, InterruptedException {
-//        capabilities(platform);
-//    }
+public class AndroidTests extends Base {
 
     @Test (groups= {"smoke"}, enabled = true, dataProvider= "ClickTestData", description = "Both buttons on the home screen lead to the correct page")
     public void checkButtonFunction(String buttonName, String desc, String buttonText, String message) throws InterruptedException, MalformedURLException {
@@ -76,14 +65,15 @@ public class AndroidTests extends AndroidBase {
         android.getViewsButton().click();
 
         //Swiping the screen twice to scroll
-        swipeScreen(Direction.UP);
-        swipeScreen(Direction.UP);
+        common.swipeScreen(Direction.UP);
+        common.swipeScreen(Direction.UP);
+        common.swipeScreen(Direction.UP);
 
         //Clicking on the "WebView" button
         android.getWebViewButton().click();
 
         //Switching to WebView context so that we can interact in web view
-        switchToWebContext();
+        common.switchToWebContext();
 
         //Clicking the hyperlink in WebView
         android.getHyperlink().click();
@@ -94,7 +84,7 @@ public class AndroidTests extends AndroidBase {
         //Navigating back to the app
         driver.navigate().back();
         //Switching back to Native App Views for app interaction
-        switchToNativeContext();
+        common.switchToNativeContext();
         //Navigating back to the landing page to reset for the next tests
         driver.navigate().back();
 

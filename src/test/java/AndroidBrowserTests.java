@@ -1,20 +1,21 @@
-import com.Framework.Base.AndroidBrowserBase;
+import com.framework.base.BrowserBase;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
-public class AndroidBrowserTests extends AndroidBrowserBase {
+public class AndroidBrowserTests extends BrowserBase {
 
-    @Test (dataProvider= "BrowserTestData")
+    @Test (groups= {"smoke"}, enabled = true, dataProvider= "BrowserTestData", description = "The welcome message appears as expected")
     public void checkWelcomeMessage(String expected) throws IOException, InterruptedException {
-        //TODO test description and general consistency
+
         //Allowing the browser to open
         Thread.sleep(5000);
         // Telling the driver to navigate to a specific URL
        driver.get("https://linkedin.com");
-       //TODO: Context switching when the app supplies it's own URL or redirects to a browser
+
         // Using page objects to identify an element and click on that element
        chrome.getHomeButton().click();
+
         //Comparing the text of that element to the expected text, and providing a message that describes the assertion
         softAssert.assertEquals(chrome.getWelcomeMessage(), expected, "Checking the welcome message");
 
@@ -23,6 +24,7 @@ public class AndroidBrowserTests extends AndroidBrowserBase {
         softAssert.assertAll();
     }
 
+    //Example of using a data provider
     @DataProvider(name="BrowserTestData")
     public static Object[][] getWelcomeMessage()
     {

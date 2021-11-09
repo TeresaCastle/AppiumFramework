@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="com.Framework.Listeners.Listeners"></listener>
-        <listener class-name="com.Framework.Listeners.ExtentReporterNG"></listener>
+        <listener class-name="com.framework.listeners.Listeners"></listener>
+        <listener class-name="com.framework.listeners.ExtentReporterNG"></listener>
     </listeners>
 <!--    <suite name="All Test Suite" parallel=""tests" thread-count="2">--> // This can be used to run tests in parallel - not recommended
     <parameter name="Platform" value="android"></parameter> //TODO Create class specific parameter examples
