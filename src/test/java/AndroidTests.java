@@ -28,7 +28,7 @@ public class AndroidTests extends Base {
         //Below you can see multiple data sets, which will run through the test multiple times
         Object[][] buttons=new Object[][]
                 {
-                        {"Accessibility", "Accessibility Node Provider", "Accessibility Node Provider1", "Checking accessibility button text"},
+                        {"Accessibility", "Accessibility Node Provider", "Accessibility Node Provider", "Checking accessibility button text"},
                         {"Animation", "Bouncing Balls", "Bouncing Balls", "Checking animation button text"}
                 };
         //Returning the data object
@@ -65,7 +65,6 @@ public class AndroidTests extends Base {
         android.getViewsButton().click();
 
         //Swiping the screen twice to scroll
-        common.swipeScreen(Direction.UP);
         common.swipeScreen(Direction.UP);
         common.swipeScreen(Direction.UP);
 

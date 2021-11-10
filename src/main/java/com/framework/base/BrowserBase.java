@@ -67,7 +67,6 @@ public class BrowserBase {
             //This sets up Chrome
             capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
         }
-        //TODO testing on samsung internet capabilities, uncertain if driver capabilities are the same...
 
         //Setting up the driver
         String address=(String) prop.get("IP");

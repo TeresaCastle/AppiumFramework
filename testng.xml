@@ -14,7 +14,7 @@
 <!--            </run>-->
 <!--        </groups>-->
 <!--        <packages>-->
-<!--            <package name="package name"/> // TODO: Create example package-->
+<!--            <package name="package name"/>
 <!--        </packages>-->
         <classes>
             <class name="AndroidTests">

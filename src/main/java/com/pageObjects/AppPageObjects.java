@@ -2,18 +2,17 @@ package com.pageObjects;
 
 import com.framework.base.Base;
 import org.openqa.selenium.WebElement;
-import java.net.MalformedURLException;
 
 public class AppPageObjects extends Base {
 
-	public static String getButtonText(String desc) throws MalformedURLException {
+	public static String getButtonText(String desc){
 		//Providing the xpath as a string
 		String xpath = "//android.widget.TextView[@text='"+desc+"']";
 		//Waiting for the presence of the desired element
 		common.waitForElement(driver.findElementByXPath(xpath), 10, 1);
 		//Creating a Web Element object
 		WebElement element = driver.findElementByXPath(xpath);
-		//Getting the text from the specified webelemenmt
+		//Getting the text from the specified web element
 		String text = element.getText();
 		//Returning the text for use in testing
 		return text;
