@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="com.Framework.Listeners.Listeners"></listener>
-        <listener class-name="com.Framework.Listeners.ExtentReporterNG"></listener>
+        <listener class-name="com.framework.listeners.Listeners"></listener>
+        <listener class-name="com.framework.listeners.ExtentReporterNG"></listener>
     </listeners>
 <!--    <suite name="All Test Suite" parallel=""tests" thread-count="2">--> // This can be used to run tests in parallel - not recommended
 <!--    <parameter name="URL" value="exampleURL"></parameter> //TODO Create class specific parameter examples-->
@@ -14,19 +14,19 @@
 <!--            </run>-->
 <!--        </groups>-->
 <!--        <packages>-->
-<!--            <package name="package name"/> // TODO: Create example package-->
+<!--            <package name="package name"/>
 <!--        </packages>-->
         <classes>
-            <class name="AndroidTests">
+            <class name="iOSTests">
                 <!--        <methods>-->
                 <!--          <include name ="/checkButtonFunction"/>-->
                 <!--          <exclude name="/checkButtonFunction"/>-->
                 <!--        </methods>-->
             </class>
-            <class name="iOSTests"/>
 
-            <!---NOTE! You must run the below browser test classes SEPARATELY from mobile automation as some of the capabilities are incompatible in Appium//-->
-<!--            <class name="AndroidBrowserTests"/>-->
+            <!---NOTE! You must run the below browser test classes SEPARATELY from mobile automation as some of the capabilities are incompatible in Appium
+            This means comment out the regular iOS Tests and comment in the Browser Tests only. Additionally, you could create a separate testng file for browser
+            // TODO create separate testng file? //-->
 <!--            <class name="iOSBrowserTests"/>//-->
 
         </classes>
