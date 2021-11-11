@@ -1,7 +1,6 @@
 package com.Framework.Listeners;
 
 import com.Framework.Base.AndroidBase;
-import org.testng.ITestResult;
 import org.testng.asserts.IAssert;
 import org.testng.asserts.SoftAssert;
 
