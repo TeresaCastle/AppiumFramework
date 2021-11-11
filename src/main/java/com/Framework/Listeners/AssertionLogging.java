@@ -1,10 +1,8 @@
-package com.Framework.Listeners;
+package com.framework.listeners;
 
-import com.Framework.Base.AndroidBase;
-import org.testng.ITestResult;
+import com.framework.base.Common;
 import org.testng.asserts.IAssert;
 import org.testng.asserts.SoftAssert;
-
 import java.io.IOException;
 
 public class AssertionLogging extends SoftAssert {
@@ -19,8 +17,7 @@ public class AssertionLogging extends SoftAssert {
     public void onAssertFailure(IAssert<?> assertCommand, AssertionError ex) {
         //Taking a screenshot on failed assertions
         try {
-            AndroidBase.getScreenshot(assertCommand.getMessage());
-            //TODO how to make this non specific to ios or android? right now it only screenshots the android phone
+            Common.getScreenshot(assertCommand.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
         }

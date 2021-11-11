@@ -1,9 +1,7 @@
-import com.Framework.Base.iOSBase;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.*;
 import java.io.IOException;
 
-public class iOSTests extends iOSBase {
+public class iOSTests extends com.framework.base.Base {
 
     @Test (description = "Checking the text and function of the Alert Views button")
     public void clickAlertViews() throws IOException, InterruptedException {
@@ -14,5 +12,4 @@ public class iOSTests extends iOSBase {
     softAssert.assertEquals(driver.findElementByAccessibilityId("Alert Views").getText(), "Alert View");
     softAssert.assertAll();
     }
-    //TODO: Everything - assertion, examples of ios interactions, test dependecy, priorities, xpath etc
 }

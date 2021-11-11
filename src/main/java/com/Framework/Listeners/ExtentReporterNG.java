@@ -62,4 +62,4 @@ public class ExtentReporterNG implements IReporter {
             }
         }
     }
-} // TODO add time tracking ?
+}

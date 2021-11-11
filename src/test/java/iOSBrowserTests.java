@@ -1,12 +1,9 @@
-import com.Framework.Base.iOSBrowserBase;
-import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pageObjects.Browser.iOSPageObjects;
 
 import java.io.IOException;
 
-public class iOSBrowserTests extends iOSBrowserBase {
+public class iOSBrowserTests extends com.framework.base.BrowserBase {
 
     @Test (dataProvider= "BrowserTestData")
     public void checkWelcomeMessage(String expected) throws IOException, InterruptedException {
