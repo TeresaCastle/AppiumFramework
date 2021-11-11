@@ -2,8 +2,8 @@
 test-output/
 .idea/
 target/
-testng.xml
 .DS_Store
 
+# you can add the mobile.xml file here you dont want other contributors changing your xml configuration
 
 
