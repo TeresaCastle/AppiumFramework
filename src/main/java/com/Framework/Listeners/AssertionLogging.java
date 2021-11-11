@@ -19,7 +19,6 @@ public class AssertionLogging extends SoftAssert {
         //Taking a screenshot on failed assertions
         try {
             Common.getScreenshot(assertCommand.getMessage());
-            //TODO how to make this non specific to ios or android? right now it only screenshots the android phone
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -32,6 +31,4 @@ public class AssertionLogging extends SoftAssert {
         System.err.println("Assertion: " + assertCommand.getMessage() + " <FAILED>. " + suffix);
 
     }
-
-
 }

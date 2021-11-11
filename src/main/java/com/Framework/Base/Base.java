@@ -5,6 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.asserts.SoftAssert;
+import pageObjects.PageObjects;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
@@ -12,16 +15,16 @@ import java.util.Properties;
 
 public class Base {
 
+    //The driver can be called directly from any class that extends Base
     public static WebDriver driver;
 
-    static {
-        try {
-            driver = driver();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    // The below objects can be used in your code to access methods from the respective Classes from any Class that extends Base.
+// (e.g. assertions, page objects and commonly used methods)
+    public static Common common = new Common();
+    public static SoftAssert softAssert = new SoftAssert();
+    public static PageObjects objects = new PageObjects();
 
+    //Setting up the driver
     public static WebDriver driver() throws IOException {
 
         // Creates a FileInputStream by opening a connection to an actual file, the file named by the path name in the file system
@@ -30,9 +33,6 @@ public class Base {
         Properties prop = new Properties();
         //Reads a property list (key and element pairs) from the input stream.
         prop.load(fis);
-
-        //Initializing the web driver
-        WebDriver driver = null;
 
         //Getting values for the driver property name and driver directory from Global Properties
         String property = (String) prop.get("property");
@@ -48,14 +48,20 @@ public class Base {
             System.setProperty(property, driverDir);
             driver = new FirefoxDriver();
             } else if (Objects.equals(property, "webdriver.safari.driver")) {
-            //Safari does not require a driver so we don't set the property and location for this browser, we only initialize the driver
-            driver = new SafariDriver();
+                //Safari does not require a driver so we don't set the property and location for this browser, we only initialize the driver
+                driver = new SafariDriver();
                 } else if (Objects.equals(property, "webdriver.edge.driver")){
-            System.setProperty(property, driverDir);
-            driver = new EdgeDriver();
+                    System.setProperty(property, driverDir);
+                    driver = new EdgeDriver();
         }
         //TODO separate testng.xml for webdriver versus mobile, executing multiple browsers at once?
         //returning the driver for use in testing
         return driver;
+    }
+
+    // We use this AfterSuite annotation from TestNG to close the browser window once all tests have completed
+    @AfterSuite
+    public void quitDriver(){
+        driver.quit();;
     }
 }
