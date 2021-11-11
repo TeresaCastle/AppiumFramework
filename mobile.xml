@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Mobile Automation">
+    <listeners>
+        <listener class-name="com.framework.listeners.Listeners"></listener>
+        <listener class-name="com.framework.listeners.ExtentReporterNG"></listener>
+    </listeners>
+    <test name="Mobile Tests">
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="smoke"/> // Example of running a selection of tests belonging to a group-->
+<!--            </run>-->
+<!--        </groups>-->
+<!--        <packages>-->
+<!--            <package name="package name"/>-->
+<!--        </packages>-->
+        <classes>
+            <class name="AndroidTests">
+                <!--               <methods>-->
+                <!--                   <include name="checkButtonFunction"></include>-->
+                <!--                   <exclude name="checkWebView"></exclude>-->
+                <!--               </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>
+
