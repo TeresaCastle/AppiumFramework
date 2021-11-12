@@ -15,7 +15,7 @@
 <!--            <package name="package name"/>-->
 <!--        </packages>-->
         <classes>
-            <class name="AndroidTests">
+            <class name="iOSTests">
                 <!--               <methods>-->
                 <!--                   <include name="checkButtonFunction"></include>-->
                 <!--                   <exclude name="checkWebView"></exclude>-->

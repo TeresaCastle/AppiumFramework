@@ -1,0 +1,20 @@
+Index: src/test/java/iOSBrowserTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import org.testng.annotations.DataProvider;\nimport org.testng.annotations.Test;\n\nimport java.io.IOException;\n\npublic class iOSBrowserTests extends com.framework.base.BrowserBase {\n\n    @Test (dataProvider= \"BrowserTestData\")\n    public void checkWelcomeMessage(String expected) throws IOException, InterruptedException {\n//TODO test description and general consistency\n        // Telling the driver to navigate to a specific URL=\n       driver.get(\"https://linkedin.com\");\n       //TODO: Context switching when the app supplies it's own URL or redirects to a browser\n        // Using page objects to identify an element and click on that element\n       safari.getHomeButton().click();\n        //Comparing the text of that element to the expected text, and providing a message that describes the assertion\n        softAssert.assertEquals(safari.getWelcomeMessage(), expected, \"Checking the welcome message\");\n\n        //Causes an exception to be thrown if any assertions fail, failing the test and printing information on the failure\n        //This should be included in any method that contains assertions. SoftAssert is preferred over regular assertions\n        softAssert.assertAll();\n    }\n\n    @DataProvider(name=\"BrowserTestData\")\n    public static Object[][] getWelcomeMessage()\n    {\n        //You can store many values here as an array, or just one\n        Object expected[][]=new Object[][]\n                {\n                        {\"Welcome to your professional community\"}\n                };\n        //Returning the data object\n        return expected;\n    }\n}\n
+===================================================================
+diff --git a/src/test/java/iOSBrowserTests.java b/src/test/java/iOSBrowserTests.java
+--- a/src/test/java/iOSBrowserTests.java	
++++ b/src/test/java/iOSBrowserTests.java	
+@@ -1,9 +1,10 @@
++import com.framework.base.BrowserBase;
+ import org.testng.annotations.DataProvider;
+ import org.testng.annotations.Test;
+ 
+ import java.io.IOException;
+ 
+-public class iOSBrowserTests extends com.framework.base.BrowserBase {
++public class iOSBrowserTests extends BrowserBase {
+ 
+     @Test (dataProvider= "BrowserTestData")
+     public void checkWelcomeMessage(String expected) throws IOException, InterruptedException {
