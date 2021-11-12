@@ -1,10 +1,10 @@
 package com.pageObjects;
 
-import com.framework.base.Base;
+import com.framework.base.BrowserBase;
 import org.openqa.selenium.WebElement;
 import java.net.MalformedURLException;
 
-public class BrowserPageObjects extends Base {
+public class BrowserPageObjects extends BrowserBase {
 
     public static WebElement getHomeButton() throws MalformedURLException {
         //Providing the xpath as a string

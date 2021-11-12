@@ -5,27 +5,21 @@ import com.pageObjects.BrowserPageObjects;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.Properties;
 
 public class BrowserBase {
-
-    //    The driver can also be called from any Class that extends Base
-    public static AppiumDriver driver;
-
-    // The below objects can be used in your code to access methods from the respective Classes from any Class that extends Base.
-    // (e.g. assertions, page objects and commonly used methods)
-    public static BrowserPageObjects chrome = new BrowserPageObjects();
-    public static AssertionLogging softAssert = new AssertionLogging();
     public static Common common = new Common();
+    public static AssertionLogging softAssert = new AssertionLogging();
+    public static BrowserPageObjects safari = new BrowserPageObjects();
+
+    public static AppiumDriver driver;
 
     {
         try {
-            driver = capabilities();
+            driver = com.framework.base.BrowserBase.capabilities();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,33 +38,24 @@ public class BrowserBase {
 
         // Setting all the properties below
         // Retrieving the device name from Global Properties and storing it as a property
-        String device = (String) prop.get("androidDevice");
+        String device = (String) prop.get("iOSDevice");
         //Telling Appium which device to use
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device);
         //Telling Appium that we are using Android Studio UI Automator to access the browser and run test automation on the app
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
-        //Providing the capability name we are setting (Chrome Driver Executable ) as well as the file path to the chrome driver
-        capabilities.setCapability("chromedriverExecutable","/Users/madison.vincent/IdeaProjects/DemoFramework/src/main/resources/chromedriver 83");
-        //Providing platform name
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        //Telling Appium not to re-install the browser app every time we test
-        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-
-        //Getting the mobile browser property from Global Properties and saving it to a string
-        String mobileBrowser =(String) prop.get("mobileBrowser");
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"XCUITest");
         //Telling Appium which browser we are using for testing
-        if (Objects.equals(mobileBrowser, "Samsung")) {
-            //This sets up Samsung Internet Browser
-            capabilities.setCapability("appPackage", "com.sec.android.app.sbrowser");
-            capabilities.setCapability("appActivity", "com.sec.android.app.sbrowser.SBrowserMainActivity");
-        } else if (Objects.equals(mobileBrowser, "Chrome")){
-            //This sets up Chrome
-            capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
-        }
+        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
+        //Providing platform name and version (Maybe not needed?)
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+        //Getting the UDID value from global properties and storing it as a property
+        String udid =(String) prop.get("UDID");
+        //Providing the UDID for the device/simulator as required
+        capabilities.setCapability(MobileCapabilityType.UDID, udid);
 
         //Setting up the driver
-        String address=(String) prop.get("IP");
-        driver = new AppiumDriver(new URL(address), capabilities);
+        String address =(String) prop.get("IP");
+        URL url = new URL(address);
+        AppiumDriver driver = new AppiumDriver(url, capabilities);
         return driver;
     }
 }
