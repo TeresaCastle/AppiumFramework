@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.Properties;
 import com.framework.listeners.AssertionLogging;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -16,7 +17,6 @@ import pageObjects.AppPageObjects;
 public class Base {
     public static Common common = new Common();
     public static AssertionLogging softAssert = new AssertionLogging();
-    public static DesiredCapabilities capabilities = new DesiredCapabilities();
     public static AppPageObjects ios = new AppPageObjects();
     public static AppiumDriver driver;
 
@@ -27,6 +27,7 @@ public class Base {
             e.printStackTrace();
         }
     }
+
 
     public static AppiumDriver capabilities() throws IOException {
 
@@ -46,6 +47,7 @@ public class Base {
         String device = (String) prop.get("iOSDevice");
 
         //Setting all the properties below
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         //Telling Appium which device to use based on the property we set earlier
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device);
         //Getting the UDID value from global properties and storing it as a property
@@ -59,10 +61,12 @@ public class Base {
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,30);
         //Telling Appium where to find the application for testing
         capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
 
         //Setting up the driver
         String address=(String) prop.get("IP");
         AppiumDriver driver = new AppiumDriver(new URL(address), capabilities);
+        //TODO should this be appium driver?
         return driver;
     }
 }
