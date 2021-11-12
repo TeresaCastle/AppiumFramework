@@ -1,0 +1,37 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n    <modelVersion>4.0.0</modelVersion>\n\n    <groupId>org.example</groupId>\n    <artifactId>DemoFramework</artifactId>\n    <version>1.0-SNAPSHOT</version>\n\n    <properties>\n        <maven.compiler.source>8</maven.compiler.source>\n        <maven.compiler.target>8</maven.compiler.target>\n    </properties>\n    <repositories>\n        <repository>\n            <id>jitpack.io</id>\n            <url>https://jitpack.io</url>\n        </repository>\n    </repositories>\n    <dependencies>\n        <dependency>\n            <groupId>io.appium</groupId>\n            <artifactId>java-client</artifactId>\n            <version>7.5.1</version>\n        </dependency>\n        <dependency>\n            <groupId>org.seleniumhq.selenium</groupId>\n            <artifactId>selenium-java</artifactId>\n            <version>3.141.59</version>\n        </dependency>\n        <!-- https://mvnrepository.com/artifact/org.testng/testng -->\n        <dependency>\n            <groupId>org.testng</groupId>\n            <artifactId>testng</artifactId>\n            <version>7.4.0</version>\n            <scope>test</scope>\n        </dependency>\n        <dependency>\n            <groupId>org.testng</groupId>\n            <artifactId>testng</artifactId>\n            <version>7.4.0</version>\n            <scope>compile</scope>\n        </dependency>\n        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->\n        <dependency>\n            <groupId>org.apache.maven.plugins</groupId>\n            <artifactId>maven-surefire-plugin</artifactId>\n            <version>3.0.0-M5</version>\n        </dependency>\n        <dependency>\n            <groupId>org.slf4j</groupId>\n            <artifactId>slf4j-api</artifactId>\n            <version>1.7.5</version>\n        </dependency>\n        <dependency>\n            <groupId>org.slf4j</groupId>\n            <artifactId>slf4j-log4j12</artifactId>\n            <version>1.7.5</version>\n        </dependency>\n        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->\n        <dependency>\n            <groupId>com.aventstack</groupId>\n            <artifactId>extentreports</artifactId>\n            <version>4.0.0</version>\n        </dependency>\n    </dependencies>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	
++++ b/pom.xml	
+@@ -36,12 +36,6 @@
+             <version>7.4.0</version>
+             <scope>test</scope>
+         </dependency>
+-        <dependency>
+-            <groupId>org.testng</groupId>
+-            <artifactId>testng</artifactId>
+-            <version>7.4.0</version>
+-            <scope>compile</scope>
+-        </dependency>
+         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+         <dependency>
+             <groupId>org.apache.maven.plugins</groupId>
+@@ -63,6 +57,12 @@
+             <groupId>com.aventstack</groupId>
+             <artifactId>extentreports</artifactId>
+             <version>4.0.0</version>
++        </dependency>
++        <dependency>
++            <groupId>org.testng</groupId>
++            <artifactId>testng</artifactId>
++            <version>7.4.0</version>
++            <scope>compile</scope>
+         </dependency>
+     </dependencies>
+ </project>
+\ No newline at end of file

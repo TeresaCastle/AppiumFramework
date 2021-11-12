@@ -1,0 +1,17 @@
+Index: src/test/java/iOSTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import com.framework.base.Base;\nimport org.testng.annotations.*;\nimport java.io.IOException;\n\npublic class iOSTests extends Base {\n\n    @Test (description = \"Checking the Alert Views button function\")\n    public void clickAlertViews() throws IOException, InterruptedException {\n    Thread.sleep(3000);\n    //Finding an element based on ID and clicking on it\n    driver.findElementByAccessibilityId(\"Alert Views\").click();\n    driver.navigate().back();\n    softAssert.assertEquals(driver.findElementByAccessibilityId(\"Alert Views\").getText(), \"Alert View\");\n    softAssert.assertAll();\n    }\n}\n
+===================================================================
+diff --git a/src/test/java/iOSTests.java b/src/test/java/iOSTests.java
+--- a/src/test/java/iOSTests.java	
++++ b/src/test/java/iOSTests.java	
+@@ -4,7 +4,7 @@
+ 
+ public class iOSTests extends Base {
+ 
+-    @Test (description = "Checking the Alert Views button function")
++    @Test
+     public void clickAlertViews() throws IOException, InterruptedException {
+     Thread.sleep(3000);
+     //Finding an element based on ID and clicking on it
