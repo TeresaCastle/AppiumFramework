@@ -1,5 +1,6 @@
 package com.framework.base;
 
+import com.framework.listeners.AssertionLogging;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -21,7 +22,7 @@ public class Base {
     // The below objects can be used in your code to access methods from the respective Classes from any Class that extends Base.
 // (e.g. assertions, page objects and commonly used methods)
     public static Common common = new Common();
-    public static SoftAssert softAssert = new SoftAssert();
+    public static AssertionLogging softAssert = new AssertionLogging();
     public static PageObjects objects = new PageObjects();
 
     //Setting up the driver
