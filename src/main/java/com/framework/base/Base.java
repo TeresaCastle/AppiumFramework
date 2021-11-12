@@ -8,7 +8,6 @@ import java.util.Properties;
 import com.framework.listeners.AssertionLogging;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import pageObjects.AppPageObjects;
@@ -23,7 +22,7 @@ public class Base {
 
     {
         try {
-            driver = com.framework.base.Base.capabilities();
+            driver = capabilities();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,7 +62,7 @@ public class Base {
 
         //Setting up the driver
         String address=(String) prop.get("IP");
-        AppiumDriver driver = new IOSDriver<>(new URL(address), capabilities);
+        AppiumDriver driver = new AppiumDriver(new URL(address), capabilities);
         return driver;
     }
 }
