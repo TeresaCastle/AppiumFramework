@@ -1,10 +1,17 @@
 package com.framework.base;
 
 import com.framework.listeners.AssertionLogging;
+<<<<<<< HEAD
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pageObjects.BrowserPageObjects;
+=======
+import com.pageObjects.BrowserPageObjects;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+>>>>>>> 38b34b025ab05c1d496fe26851f6640759ab03b5
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -58,4 +65,8 @@ public class BrowserBase {
         AppiumDriver driver = new AppiumDriver(url, capabilities);
         return driver;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 38b34b025ab05c1d496fe26851f6640759ab03b5

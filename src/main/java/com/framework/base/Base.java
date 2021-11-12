@@ -7,11 +7,11 @@ import java.net.URL;
 import java.util.Properties;
 import com.framework.listeners.AssertionLogging;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
 import pageObjects.AppPageObjects;
+
 
 
 public class Base {
@@ -70,3 +70,4 @@ public class Base {
         return driver;
     }
 }
+

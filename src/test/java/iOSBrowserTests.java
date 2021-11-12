@@ -9,10 +9,10 @@ public class iOSBrowserTests extends com.framework.base.BrowserBase {
     public void checkWelcomeMessage(String expected) throws IOException, InterruptedException {
 //TODO test description and general consistency
         // Telling the driver to navigate to a specific URL=
-       driver.get("https://linkedin.com");
-       //TODO: Context switching when the app supplies it's own URL or redirects to a browser
+        driver.get("https://linkedin.com");
+        //TODO: Context switching when the app supplies it's own URL or redirects to a browser
         // Using page objects to identify an element and click on that element
-       safari.getHomeButton().click();
+        safari.getHomeButton().click();
         //Comparing the text of that element to the expected text, and providing a message that describes the assertion
         softAssert.assertEquals(safari.getWelcomeMessage(), expected, "Checking the welcome message");
 

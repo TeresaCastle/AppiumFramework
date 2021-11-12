@@ -6,14 +6,14 @@
         <listener class-name="com.framework.listeners.ExtentReporterNG"></listener>
     </listeners>
     <test name="Mobile Browser Tests">
-        <!--        <groups>-->
-        <!--            <run>-->
-        <!--                <include name="smoke"/> // Example of running a selection of tests belonging to a group-->
-        <!--            </run>-->
-        <!--        </groups>-->
-        <!--        <packages>-->
-        <!--            <package name="package name"/>-->
-        <!--        </packages>-->
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="smoke"/> // Example of running a selection of tests belonging to a group-->
+<!--            </run>-->
+<!--        </groups>-->
+<!--        <packages>-->
+<!--            <package name="package name"/>-->
+<!--        </packages>-->
         <classes>
             <class name="iOSBrowserTests">
                 <!--               <methods>-->
