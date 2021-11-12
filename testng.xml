@@ -17,12 +17,12 @@
 <!--            <package name="package name"/> // TODO: Create example package-->
 <!--        </packages>-->
         <classes>
-            <class name="AndroidTests">
-                <!--        <methods>-->
-                <!--          <include name ="/checkButtonFunction"/>-->
-                <!--          <exclude name="/checkButtonFunction"/>-->
-                <!--        </methods>-->
-            </class>
+<!--            <class name="AndroidTests">-->
+<!--                &lt;!&ndash;        <methods>&ndash;&gt;-->
+<!--                &lt;!&ndash;          <include name ="/checkButtonFunction"/>&ndash;&gt;-->
+<!--                &lt;!&ndash;          <exclude name="/checkButtonFunction"/>&ndash;&gt;-->
+<!--                &lt;!&ndash;        </methods>&ndash;&gt;-->
+<!--            </class>-->
             <class name="iOSTests"/>
 
             <!---NOTE! You must run the below browser test classes SEPARATELY from mobile automation as some of the capabilities are incompatible in Appium//-->
