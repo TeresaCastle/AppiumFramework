@@ -28,7 +28,7 @@ Note: a great guide on Git exists at https://rogerdudler.github.io/git-guide/
 2. Navigate to the repository. The page should be focused on Quick Setup and the bottom section should say "...or import code from another repository". Click "Import Code"
 3. Paste in https://github.com/madison-vincent/DemoAppiumFramework.git and click "Begin Import"
 4. The new repository should now be a copy of the Demo framework
-5. Open the IDE and create a new project based on a Verified Code Source (Get form VCS on IntelliJ). Provide the URL to your new repository
+5. Open the IDE and create a new project based on a Verified Code Source (Get from VCS on IntelliJ). Provide the URL to your new repository
 6. Switch to the repo branch you want to view/work in. Run the following command (Replace baseFramework with testingFramework to checkout the branch with example tests): <br>
  git checkout baseFramework <br>
  git pull baseFramework
