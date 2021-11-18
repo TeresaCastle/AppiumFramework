@@ -63,7 +63,7 @@ If you are unfamiliar with the page object model check out this link: [click her
 
 - There are several methods for locating objects on iOS. <br> a. Appium Desktop Inspector <br> b. Printing the page source code with System.out.println(driver.getPageSource()); and manually locating the right code. <br> c. Xcode (Use XCUITest, typically produces somewhat unusable code, i'd recommend some research) <br> You can look up ways to use this information to create the xpath but typically it follows this format:  //tagName[@attribute=’value’] e.g. //textView[@id='idvalue'] <br>
 
-- Locating elements in Appium Inspector
+##### Locating elements in Appium Inspector
 1. The easiest way to start Appium Inspector is through the desktop client. Ensure the Appium server is running. <br>
 2. Use the magnifying glass button to start the inspector session. It may take a moment to load. <br>
 3. For your first time using Appium Inspector you will need to configure your Desired Capabilities. You will be able to save it for the future so this will only happen once. If you saves one previously, select it in "Saved Capability Sets" and skip to step 4.   
@@ -74,7 +74,7 @@ If you are unfamiliar with the page object model check out this link: [click her
     &nbsp;c. Click "Save As"  to save your json file of capabilities and save it <br>
 4. Click "Start Session". You should see the app launch on the device. 
 
-- Locating elements in mobile browser/web view
+##### Locating elements in mobile browser/web view
 1. To locate elements on the device in WebViews/Browser, use the following URL for Chrome: chrome://inspect/#devices . Other browsers typically have their own remote debugger as well. In this example, you will see devices listed and will be able to inspect them when they have an instance of chrome running. (Either a WebView or a browser itself). You can now select elements to view their xpath. [Here](https://devhints.io/xpath) is a great cheatsheet for writing xpaths.
 
 #### Test Body
