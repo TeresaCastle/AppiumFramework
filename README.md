@@ -37,9 +37,8 @@ If you are unfamiliar with the page object model check out this link: [click her
     a. Project Name (Used for saving screenshots and reports to the right location) <br>
     b. IP (Your IP Address is required to initialize the drivers and interact with appium) <br>
     c. App Directory (Where the apps are located in the project)<br>
-    e. Android Device (Name of the device you want to use in Android Studio uiautomatoor) <br>
-    f. Android App (Name of the app you want to use for Android Automation <br>
-    g. mobileBrowser (The name of the browser you want to use for Android) <br>
+    e. iOS Device (Name of the device you want to use in Android Studio uiautomatoor) <br>
+    f. iOS App (Name of the app you want to use for Android Automation) <br>
     
 ## Usage
 
@@ -49,7 +48,6 @@ If you are unfamiliar with the page object model check out this link: [click her
 - There are 3 example tests already in the framework that you can use as an outline for writing tests
 - When writing tests you will focus almost exclusively on the Test classes and the Page Objects. 
 - The "Common" class also contains commonly used methods that you can utilize anywhere in your test classes. e.g. swipe
-- Android's uiautomatorviewer typically does not work with the Appium server running. Stop the server before opening uiautomatorviewer
 
 #### Test Setup
 1. Utilize the existing examples as an outline. For example, the current test classes extend the Base or BrowserBase class, so your new test classes should as well. 
@@ -59,17 +57,17 @@ If you are unfamiliar with the page object model check out this link: [click her
 5. I recommend making an outline of your test using comments to begin. (e.g. // click on button, // get element text, //check text with assertion). You can remove the comments as you create the steps in code, or leave them for reference
 
 #### Test Body
-1. Use uiautomatorviewer to locate elements on the device when using an *app*. You can open it by typing 'uiautomatorviewer' into the terminal. NOTE: Make sure the appium server is off before opening the uiautomatorviewer, or it wont connect to the device
-2. For *Hybrid App* testing only (not browser), you must switch contexts to enter the WebView if you click on a link or button in the app that brings you to a website. If you dont switch contexts to the web view you wont be able to locate any elements or interact with the page. Once you navigate back to the app you wil need to switch back to the Native App view. You can accomplish both of these by using switchToWebContext(); and switchToNativeContext(); from the Common class
-3. Any element/button/object you are interacting with in the app or browser should be contained in it's own method inside of pageObjects
-4.  Tests should always begin and end from a "default" state. You want to make sure that you can run each test by itself as well as one after another. This ensures that if a test is skipped the following tests will still execute. If you cant avoid having one test being dependent on the test before it, use the "dependsOnMethods" field from TestNG. e.g. Every test starts on the app landing page and returns to it once the test is over.
-5.  Utilize data providers to reduce redundant code. For example, if you perform the same set of actions on 5 different objects you can use a data provider to supply those 5 objects and loop through the code, rather than writing the same code 5 times. 
-6. While assertions may not be needed for every test, they can be utilized to catch failures/defects by checking boolean statements or comparing objects to an expected value. 
+1. There are several methods for locating objects on iOS. <br> a. Xcode (Use XCUITest) <br> b. Appium Desktop Inspector <br> c. Printing the page source code with System.out.println(driver.getPageSource()); and manually locating the right code
+3. For *Hybrid App* testing only (not browser), you must switch contexts to enter the WebView if you click on a link or button in the app that brings you to a website. If you dont switch contexts to the web view you wont be able to locate any elements or interact with the page. Once you navigate back to the app you wil need to switch back to the Native App view. You can accomplish both of these by using switchToWebContext(); and switchToNativeContext(); from the Common class
+4. Any element/button/object you are interacting with in the app or browser should be contained in it's own method inside of pageObjects
+5.  Tests should always begin and end from a "default" state. You want to make sure that you can run each test by itself as well as one after another. This ensures that if a test is skipped the following tests will still execute. If you cant avoid having one test being dependent on the test before it, use the "dependsOnMethods" field from TestNG. e.g. Every test starts on the app landing page and returns to it once the test is over.
+6.  Utilize data providers to reduce redundant code. For example, if you perform the same set of actions on 5 different objects you can use a data provider to supply those 5 objects and loop through the code, rather than writing the same code 5 times. 
+7. While assertions may not be needed for every test, they can be utilized to catch failures/defects by checking boolean statements or comparing objects to an expected value. 
 
 ### Running Tests
 
-1. Ensure Android Studio is open
-2. Open the emulator. It must be open for Appium to recognize it. If a physical device is plugged in it will likely use that over the emulator.
+1. Ensure Xcode is open
+2. Open the simuator. It must be open for Appium to recognize it. If a physical device is plugged in it will likely use that over the emulator.
 3. Ensure the Appium server is running
 4. You should now be able to run tests. It should default to running using TestNG. <br>
    a. You can run single tests or classes by right clicking the test/class and selecting "Run" 
