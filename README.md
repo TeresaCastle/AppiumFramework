@@ -2,8 +2,8 @@
 
 # Appium Framework for Android
 
-This branch includes the appium framework for Android Apps and Browsers. Please see the README on the main branch for installation and setup instructions. 
-https://github.com/madison-vincent/DemoAppiumFramework#readme
+This branch includes the appium framework for Android Apps and Browsers. Please see the README on the main branch for installation and setup instructions: 
+[Here](https://github.com/madison-vincent/DemoAppiumFramework#readme)
 
 ### Project Outline
 
@@ -12,7 +12,7 @@ https://github.com/madison-vincent/DemoAppiumFramework#readme
 [main > java > com < framework > listeners] This is where the configuration lives for TestNG and the report that is generated with testing results. You can use the AssertionLogging class to change what happens when assertions pass or fail during a test. You can use the Listeners class to change what happens when tests start, end, pass, fail, are skipped, etc. I'd recommend just leaving the ExtentReporterNG class alone. 
 
 [main > java > com < framework > pageObjects] This is where page objects live. Page objects are elements within the app, such as a button, that you want to interact with. We keep them separate from the tests so that we can reference the same object in multiple places without having redundant code. Page Objects should be organized into packages/folders and classes in a logical manner. Place page objects from similar tests or areas in the same Class. 
-If you are unfamiliar with the page object model check out this link: https://www.browserstack.com/guide/page-object-model-in-selenium
+If you are unfamiliar with the page object model check out this link: [click here](https://www.browserstack.com/guide/page-object-model-in-selenium)
 
 [main > resources] This is where your mobile chromedriver lives and where your app lives, assuming you are installing the app through the project with an .apk file. If you want to open an app that is already installed on the emulator/device there is code you can look at in the Base class for reference. 
 
