@@ -71,7 +71,7 @@ If you plan on testing in browsers (NOT Web Views) or on dekstop browser, take t
 
 ### Writing Tests
 
-I recommend checking the README files for each platform branch to find platform specific information on writing tests:
+I recommend checking the README files for each platform branch to find platform specific information on writing tests: <br>
 [Click here for Android](https://github.com/madison-vincent/DemoAppiumFramework/blob/androidFramework/README.md)
 
 ### Running Tests
