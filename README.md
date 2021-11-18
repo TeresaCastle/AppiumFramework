@@ -22,7 +22,7 @@ For anyone unfamiliar with automation, I have added detailed comments to nearly 
 
 ### Creating your own repo with the code
 
-Note: a great guide on Git exists at https://rogerdudler.github.io/git-guide/
+Note: a great guide on Git exists [here](https://rogerdudler.github.io/git-guide/)
 
 1. Create a new repository in github for your project
 2. Navigate to the repository. The page should be focused on Quick Setup and the bottom section should say "...or import code from another repository". Click "Import Code"
