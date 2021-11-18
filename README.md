@@ -67,11 +67,11 @@ If you are unfamiliar with the page object model check out this link: [click her
 1. The easiest way to start Appium Inspector is through the desktop client. Ensure the Appium server is running. <br>
 2. Use the magnifying glass button to start the inspector session. It may take a moment to load. <br>
 3. For your first time using Appium Inspector you will need to configure your Desired Capabilities. You will be able to save it for the future so this will only happen once. If you saves one previously, select it in "Saved Capability Sets" and skip to step 4.   
-    a. *Users who have the .app or .ipa file in the project* will need to fill in the following capabilities (add them in the 'name' field on their own rows):
-        - platformName (set it to iOS), platformVersion (fill in the OS version on the device), app (get the iOSApp field from Global Capabilities), deviceName (Device name from Xcode), udid (udid for the same device from Xcode), automationName (set it to XCUITest)
-    b. *Users that open a pre-installed app on their phone* will need to fill in the following capabilities (add them in the 'name' field on their own rows):
-        - platformName (set it to iOS), platformVersion (fill in the OS version on the device), bundleId (get it from dev or the method [here](https://stackoverflow.com/questions/27509838/how-to-get-bundle-id-of-ios-app-either-using-ipa-file-or-app-installed-on-iph). Youre looking for a string like xx.xx.xx e.g. tv.sny-wta.ios), deviceName (Device name from Xcode), udid (udid for the same device from Xcode), automationName (set it to XCUITest)
-    c. Click "Save As"  to save your json file of capabilities and save it 
+    a. *Users who have the .app or .ipa file in the project* will need to fill in the following capabilities (add them in the 'name' field on their own rows): <br>
+        - platformName (set it to iOS), platformVersion (fill in the OS version on the device), app (get the iOSApp field from Global Capabilities), deviceName (Device name from Xcode), udid (udid for the same device from Xcode), automationName (set it to XCUITest) <br>
+    b. *Users that open a pre-installed app on their phone* will need to fill in the following capabilities (add them in the 'name' field on their own rows): <br>
+        - platformName (set it to iOS), platformVersion (fill in the OS version on the device), bundleId (get it from dev or the method [here](https://stackoverflow.com/questions/27509838/how-to-get-bundle-id-of-ios-app-either-using-ipa-file-or-app-installed-on-iph). Youre looking for a string like xx.xx.xx e.g. tv.sny-wta.ios), deviceName (Device name from Xcode), udid (udid for the same device from Xcode), automationName (set it to XCUITest) <br>
+    c. Click "Save As"  to save your json file of capabilities and save it <br>
 4. Click "Start Session". You should see the app launch on the device. 
 
 - Locating elements in mobile browser/web view
