@@ -1,4 +1,4 @@
-### NOTE: Framework and README are incomplete and are in the process of being restructured
+### NOTE: Framework and README are under construction
 
 # Appium Framework for Android
 
