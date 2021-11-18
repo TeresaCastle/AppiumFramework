@@ -61,8 +61,5 @@ public class Common extends Base {
         return element;
     }
     //TODO add and test scroll methods? Potentially convert to ios driver and android drivers?
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 38b34b025ab05c1d496fe26851f6640759ab03b5
+

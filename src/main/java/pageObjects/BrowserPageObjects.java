@@ -1,8 +1,4 @@
-<<<<<<< HEAD:src/main/java/pageObjects/BrowserPageObjects.java
 package pageObjects;
-=======
-package com.pageObjects;
->>>>>>> 38b34b025ab05c1d496fe26851f6640759ab03b5:src/main/java/com/pageObjects/BrowserPageObjects.java
 
 import com.framework.base.BrowserBase;
 import org.openqa.selenium.WebElement;
