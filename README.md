@@ -71,8 +71,8 @@ If you plan on testing in browsers (NOT Web Views) or on dekstop browser, take t
 
 ### Writing Tests
 
-I recommend checking the README files for each platform branch to find platform specific information on writing tests
-Note: Android's uiautomatorviewer typically does not work with the Appium server running. Stop the server before opening uiautomatorviewer
+I recommend checking the README files for each platform branch to find platform specific information on writing tests:
+[Click here for Android](https://github.com/madison-vincent/DemoAppiumFramework/blob/androidFramework/README.md)
 
 ### Running Tests
 
