@@ -2,9 +2,7 @@
 
 # Appium Framework
 
-This README file is currently *Incomplete*
-
-The project contains a framework for running Appium. The baseFramework branch contains a mostly blank framework with 1 example test in each platform. The testingFramework branch contains more detailed testing examples to work from. Both contain detailed comments throughout the code. 
+The project contains a framework for running Appium. Each branch is platform specific, so iOSFramework branch is specific to running automation on iOS and so forth.
 
 The Framework was made using IntelliJ on MacOS, so file path's mentioned in code may need to be adjusted
 
@@ -29,17 +27,17 @@ Note: a great guide on Git exists at https://rogerdudler.github.io/git-guide/
 3. Paste in https://github.com/madison-vincent/DemoAppiumFramework.git and click "Begin Import"
 4. The new repository should now be a copy of the Demo framework
 5. Open the IDE and create a new project based on a Verified Code Source (Get from VCS on IntelliJ). Provide the URL to your new repository
-6. Switch to the repo branch you want to view/work in. Run the following command (Replace baseFramework with testingFramework to checkout the branch with example tests): <br>
- git checkout baseFramework <br>
- git pull baseFramework
-7. The code should be in place, as a check you can ensure that classes exist in src>main>java>com.Framework>Base
+6. Switch to the repo branch you want to view/work in. Run the following command to checkout the Android Framework as an example: <br>
+ git checkout androidFramework <br>
+ git pull androidFramework
+7. The code should be in place, as a check you can ensure that classes exist in the folder/package located at src>main>java>com>framework>base
 
 ### Setting up for general testing
 
  1. Right click on the pom.xml > Maven > Reload Project
  3. You can now add the .app and .apk files to the project. I recommend moving them into src/main/resources within the project.
- 4. Naviage to src>main>java>com.Framework>global.properties and open the file 
- 5. Follow the provided instructions to update the fields where needed. The list of customizable fields is below: <br>
+ 4. Naviage to src>main>java>com>framework>global.properties and open the file.
+ 5. Follow the provided instructions to update the fields where needed. Global Properties will only contain the properties relevant to the platform you are currently working. The list of customizable fields for all platforms is below: <br>
     a. Project Name (Used for saving screenshots and reports to the right location) <br>
     b. IP (Your IP Address is required to initialize the drivers and interact with appium) <br>
     c. App Directory (Where the apps are located in the project)<br>
@@ -55,9 +53,10 @@ Note: a great guide on Git exists at https://rogerdudler.github.io/git-guide/
 
 If you plan on testing in browsers (NOT Web Views) or on dekstop browser, take the following steps: 
 
-1. Locate the drivers within the project at src/main/resources
-2. We need to check that we have the right drivers for the browsers we will be testing on. You should check the version of the browser you are using and then check that you are using the right driver version for that browser. Repeat this for all browsers you plan on testing with.
-3. Some examples are included below, as of October/2021 I am using the following browser and driver versions: <br>
+1. Checkout the webFramework branch
+2. Locate the drivers within the project at src/main/resources
+3. We need to check that we have the right drivers for the browsers we will be testing on. You should check the version of the browser you are using and then check that you are using the right driver version for that browser. Repeat this for all browsers you plan on testing with.
+4. Some examples are included below, as of October/2021 I am using the following browser and driver versions: <br>
     a. "chromedriver web 93" is the chromedriver for desktop. It is currently version 93 and works with Chrome browser version 93. <br>
     b. "chromedriver 83" is the chromedriver for Android. It is currently version 83 and works with Chrome browser version 83 <br>
     c. "geckodriver 30" is the driver for Firefox on Desktop. It is currently version 30 and support Firefox Browser version 93 <br>
@@ -70,31 +69,25 @@ If you plan on testing in browsers (NOT Web Views) or on dekstop browser, take t
 
 ### Writing Tests
 
+I recommend checking the README files for each platform branch to find platform specific information on writing tests
 Note: Android's uiautomatorviewer typically does not work with the Appium server running. Stop the server before opening uiautomatorviewer
 
 ### Running Tests
 
-1. Ensure Android Studio and Xcode are open. 
-2. Open the simulator/emulator in both locations. They must be open for Appium to recognize them. If a physical device is plugged in it will likely use that, but the global properties file may still need to be updated to include the right device name and id
+1. Ensure Android Studio or Xcode are open, depending on which platform you are currently testing
+2. Open the simulator/emulator. It must be open for Appium to recognize it. If a physical device is plugged in it will likely use that, but the global properties file may still need to be updated to include the right device name and id
 3. Ensure the Appium server is running
 4. You should now be able to run tests. It should default to running using TestNG. <br>
-   a. You can run tests by right clicking the class and selecting "Run" or by right clicking the "testng.xml" file and clicking "run". The testng file will executes all tests as detailed within the file. This is the best way to execute your entire suite of tests as well as particular groups, packages, classes etc. 
+   a. You can run tests by right clicking the class and selecting "Run" or by right clicking the "mobile.xml" or "browser.xml" file and clicking "run". The testng file will executes all tests as detailed within the file. This is the best way to execute your entire suite of tests as well as particular groups, packages, classes etc. 
 6. Test output will appear in the IDE as well as the Appium Server logs. 
 
 ### Test Reports
 
-Several reports will be generated automatically once tests have been ran that have failed/passed. They can be access by right clicking the report > Open In > Browser > Select browser. They are found at the following locations:
+A report will be generated automatically once tests have been ran that have failed/passed. You can open it by right clicking the report > Open In > Browser > Select browser. The report is found at the following location b default:
 
-Emailable Report: Detailed report with screenshots
-test-output > emailable-report.html
-
-Basic Report: Simple overall report without screenshots
-test-output > index.html
-
-ExtentReport: Visually pleasing and includes graphs, dashboard etc
 test-output > Reports > htmlreport.html
 
-I would recommend the Emailable Report when debugging as it includes the most detail as well as screenshots captured upon failed assertions
+Screenshots are not being pulled into the report at this time, but may in the future. Screenshots should still be captured upon assertion failures and should appear at test-output>Screenshots
 
 ## Contributing
 
