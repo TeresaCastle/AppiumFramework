@@ -5,6 +5,16 @@
 This branch includes the appium framework for Android Apps and Browsers. Please see the README on the main branch for installation and setup instructions. 
 https://github.com/madison-vincent/DemoAppiumFramework#readme
 
+### Project Outline
+[main > java > com > framework > base] This is where the majority of the framework lives. The Base class is where we set up the Appium Driver and give Appium all of the settings it needs to run automation on a mobile app. The BrowserBase class is where we set up the Driver and settings for mobile browsers. The Common class contains methods that are commonly used in the project, but not specific to a certain area or class. 
+
+[main > java > com < framework > listeners] This is where the configuration lives for TestNG and the report that is generated with testing results. You can use the AssertionLogging class to change what happens when assertions pass or fail during a test. You can use the Listeners class to change what happens when tests start, end, pass, fail, are skipped, etc. I'd recommend just leaving the ExtentReporterNG class alone. 
+
+[main > java > com < framework > pageObjects] This is where page objects live. Page objects are elements within the app, such as a button, that you want to interact with. We keep them separate from the tests so that we can reference the same object in multiple places without having redundant code.
+If you are unfamiliar with the page object model check out this link: https://www.browserstack.com/guide/page-object-model-in-selenium
+
+[main > resources] This is where your mobile chromedriver lives and where your app lives, assuming you are installing the app through the project with an .apk file. If you want to open an app that is already installed on the emulator/device there is code you can look at in the Base class for reference. 
+
 ### Setting up for general testing
 
  1. Right click on the pom.xml > Maven > Reload Project
@@ -22,7 +32,10 @@ https://github.com/madison-vincent/DemoAppiumFramework#readme
 
 ### Writing Tests
 
-I recommend checking the README files for each platform branch to find platform specific information on writing tests
+Common class contains commonly used methods
+
+#### Example Tests
+There are 3 example tests already in the framework that you can use as an outline for writing tests. 
 Note: Android's uiautomatorviewer typically does not work with the Appium server running. Stop the server before opening uiautomatorviewer
 
 ### Running Tests
@@ -36,7 +49,7 @@ Note: Android's uiautomatorviewer typically does not work with the Appium server
 
 ### Test Reports
 
-A report will be generated automatically once tests have been ran that have failed/passed. You can open it by right clicking the report > Open In > Browser > Select browser. The report is found at the following location b default:
+A report will be generated automatically once tests have been ran that have failed/passed. You can open it by right clicking the report > Open In > Browser > Select browser. The report is found at the following location by default:
 
 test-output > Reports > htmlreport.html
 
