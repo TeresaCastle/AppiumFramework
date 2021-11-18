@@ -4,7 +4,9 @@
 
 The project contains a framework for running Appium. Each branch is platform specific, so iOSFramework branch is specific to running automation on iOS and so forth.
 
-The Framework was made using IntelliJ on MacOS, so file path's mentioned in code may need to be adjusted
+The Framework was made using IntelliJ on MacOS, so file path's mentioned in code may need to be adjusted.
+
+For anyone unfamiliar with automation, I have added detailed comments to nearly every line of code. I would highly suggest going through the tests in place and reading the comments for every line to understand what their purpose is. 
 
 ## Installation
 
