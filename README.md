@@ -15,6 +15,18 @@ If you are unfamiliar with the page object model check out this link: https://ww
 
 [main > resources] This is where your mobile chromedriver lives and where your app lives, assuming you are installing the app through the project with an .apk file. If you want to open an app that is already installed on the emulator/device there is code you can look at in the Base class for reference. 
 
+[test > java] This is where the test classes live. You can create additional packages/folders in this location to organize your tests by area, or however you want. You will find example tests in the classes within this folder. 
+
+[test-output > Reports] 
+
+[test-output > Screenshots]
+
+[.gitignore]
+
+[pom.xml]
+
+[mobile.xml and browser.xml]
+
 ### Setting up for general testing
 
  1. Right click on the pom.xml > Maven > Reload Project
