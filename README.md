@@ -61,7 +61,7 @@ If you are unfamiliar with the page object model check out this link: [click her
 
 ### Identifying Elements
 
-1. Use uiautomatorviewer to locate elements on the device when using an *app*. You can open it by typing 'uiautomatorviewer' into the terminal. NOTE: Make sure the appium server is off before opening the uiautomatorviewer, or it wont connect to the device. You can look up ways to use this information to create the xpath but typically it follows this format:  //tagName[@attribute=’value’] e.g. //textView[@id='idvalue']
+1. Use uiautomatorviewer to locate elements on the device when using an *app*. You can open it by typing 'uiautomatorviewer' into the terminal. NOTE: Make sure the appium server is off before opening the uiautomatorviewer, or it wont connect to the device. You can look up ways to use this information to create the xpath but typically it follows this format:  //android.widget.tagName[@attribute=’value’] e.g. //android.widget.textView[@id='idvalue']
 2. To locate elements on the device in WebViews/Browser, use the following URL for Chrome: chrome://inspect/#devices . Other browsers typically have their own remote debugger as well. In this example, you will see devices listed and will be able to inspect them when they have an instance of chrome running. (Either a WebView or a browser itself). You can now select elements to view their xpath. [Here](https://devhints.io/xpath) is a great cheatsheet for writing xpaths.
 
 ### Test Body
