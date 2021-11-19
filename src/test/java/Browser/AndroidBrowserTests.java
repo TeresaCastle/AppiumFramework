@@ -1,3 +1,5 @@
+package Browser;
+
 import com.framework.base.BrowserBase;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

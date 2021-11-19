@@ -62,4 +62,58 @@ public class AppPageObjects extends Base {
 		return element;
 	}
 
+	public static WebElement getAppButton(){
+		//Providing the xpath as a string
+		String xpath = "//android.widget.TextView[@text='App']";
+		//Waiting for the presence of the desired element
+		common.waitForElement(driver.findElementByXPath(xpath), 10, 1);
+		//Creating a Web Element object
+		WebElement element = driver.findElementByXPath(xpath);
+		//Returning the element for use in testing
+		return element;
+	}
+
+	public static WebElement getAlertDialogsButton(){
+		//Providing the xpath as a string
+		String xpath = "//android.widget.TextView[@text='Alert Dialogs']";
+		//Waiting for the presence of the desired element
+		common.waitForElement(driver.findElementByXPath(xpath), 10, 1);
+		//Creating a Web Element object
+		WebElement element = driver.findElementByXPath(xpath);
+		//Returning the element for use in testing
+		return element;
+	}
+
+	public static WebElement getTextEntryDialogButton(){
+		//Providing the xpath as a string
+		String xpath = "//android.widget.Button[@text='Text Entry dialog']";
+		//Waiting for the presence of the desired element
+		common.waitForElement(driver.findElementByXPath(xpath), 10, 1);
+		//Creating a Web Element object
+		WebElement element = driver.findElementByXPath(xpath);
+		//Returning the element for use in testing
+		return element;
+	}
+
+	public static WebElement getUsernameField(){
+		//Providing the xpath as a string
+		String xpath = "//android.widget.EditText[@resource-id='io.appium.android.apis:id/username_edit']";
+		//Waiting for the presence of the desired element
+		common.waitForElement(driver.findElementByXPath(xpath), 10, 1);
+		//Creating a Web Element object
+		WebElement element = driver.findElementByXPath(xpath);
+		//Returning the element for use in testing
+		return element;
+	}
+
+	public static WebElement getOkButton(){
+		//Providing the xpath as a string
+		String xpath = "//android.widget.Button[@resource-id='android:id/button1']";
+		//Waiting for the presence of the desired element
+		common.waitForElement(driver.findElementByXPath(xpath), 10, 1);
+		//Creating a Web Element object
+		WebElement element = driver.findElementByXPath(xpath);
+		//Returning the element for use in testing
+		return element;
+	}
 }

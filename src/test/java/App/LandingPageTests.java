@@ -1,10 +1,13 @@
+package App;
+
 import java.net.MalformedURLException;
 import com.framework.base.Base;
 import com.framework.base.Common.Direction;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 
-public class AndroidTests extends Base {
+//This class contains random tests executed from the landing page
+public class LandingPageTests extends Base {
 
     //TODO test screenshots
 
@@ -59,38 +62,28 @@ public class AndroidTests extends Base {
         return buttons;
     }
 
-    //Below is an example of a test that uses context switching to automate a hybrid app
-    @Test (groups= {"smoke"}, enabled = true, description = "We are able to switch from native views to web views")
-    public void checkWebView() throws InterruptedException, MalformedURLException {
+    //An example of using automation to fill text fields in a text entry dialog box
+    @Test (groups= {"smoke"}, enabled = true, description = "We can enter text in the Text Entry Dialog")
+    public void fillTextEntryDialog(){
 
-        //Clicking on the "Views" button from the landing page
-        android.getViewsButton().click();
+        //Searching for an element and clicking on it, based on the page object
+        android.getAppButton().click();
+        android.getAlertDialogsButton().click();
+        android.getTextEntryDialogButton().click();
+        android.getUsernameField().click();
 
-        //Swiping the screen twice to scroll
-        common.swipeScreen(Direction.UP);
-        common.swipeScreen(Direction.UP);
+        //Filling the text field with a string
+        android.getUsernameField().sendKeys("Username");
+        // Checking that the element now contains the entered test
+        softAssert.assertEquals(android.getUsernameField().getText(), "Username", "The username field is no longer empty");
 
-        //Clicking on the "WebView" button
-        android.getWebViewButton().click();
+        //Clicking the "ok" button to close the dialog
+        android.getOkButton().click();
 
-        //Switching to WebView context so that we can interact in web view
-        common.switchToWebContext();
-
-        //Clicking the hyperlink in WebView
-        android.getHyperlink().click();
-
-        //Assertion to test that the correct text appears on the following Web View
-        softAssert.assertEquals(android.getWebViewTextElement().getText(), "I am some other page content", "Checking that the web view text is correct");
-
-        //Navigating back to the app
+        //Returning to the landing page
         driver.navigate().back();
-        //Switching back to Native App Views for app interaction
-        common.switchToNativeContext();
-        //Navigating back to the landing page to reset for the next tests
         driver.navigate().back();
 
-        //Causes an exception to be thrown if any assertions fail, failing the test and printing information on the failure
-        //This should be included in any method that contains assertions. SoftAssert is preferred over regular assertions
         softAssert.assertAll();
     }
 }

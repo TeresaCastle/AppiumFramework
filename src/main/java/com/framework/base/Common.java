@@ -184,6 +184,7 @@ public class Common {
         for (String context : contexts) {
             System.out.println(context);
             if (context.contains("WEBVIEW")) {
+                System.out.println("Switching to WebView");
                 driver.context(context);
                 return true;
             }
@@ -197,6 +198,7 @@ public class Common {
         for (String context : contexts) {
             System.out.println(context);
             if (context.contains("NATIVE")) {
+                System.out.println("Switching to Native");
                 driver.context(context);
                 return true;
             }

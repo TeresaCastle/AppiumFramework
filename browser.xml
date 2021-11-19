@@ -15,7 +15,7 @@
 <!--            <package name="package name"/>-->
 <!--        </packages>-->
         <classes>
-            <class name="AndroidBrowserTests">
+            <class name="Browser.AndroidBrowserTests">
                 <!--               <methods>-->
                 <!--                   <include name="checkWelcomeMessage"></include>-->
                 <!--                   <exclude name="checkWelcomeMessage"></exclude>-->
