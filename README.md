@@ -71,25 +71,10 @@ If you plan on testing in browsers (NOT Web Views) or on dekstop browser, take t
 
 ### Writing Tests
 
-I recommend checking the README files for each platform branch to find platform specific information on writing tests: <br>
-[Click here for Android](https://github.com/madison-vincent/DemoAppiumFramework/blob/androidFramework/README.md)
-
-### Running Tests
-
-1. Ensure Android Studio or Xcode are open, depending on which platform you are currently testing
-2. Open the simulator/emulator. It must be open for Appium to recognize it. If a physical device is plugged in it will likely use that, but the global properties file may still need to be updated to include the right device name and id
-3. Ensure the Appium server is running
-4. You should now be able to run tests. It should default to running using TestNG. <br>
-   a. You can run tests by right clicking the class and selecting "Run" or by right clicking the "mobile.xml" or "browser.xml" file and clicking "run". The testng file will executes all tests as detailed within the file. This is the best way to execute your entire suite of tests as well as particular groups, packages, classes etc. 
-6. Test output will appear in the IDE as well as the Appium Server logs. 
-
-### Test Reports
-
-A report will be generated automatically once tests have been ran that have failed/passed. You can open it by right clicking the report > Open In > Browser > Select browser. The report is found at the following location b default:
-
-test-output > Reports > htmlreport.html
-
-Screenshots are not being pulled into the report at this time, but may in the future. Screenshots should still be captured upon assertion failures and should appear at test-output>Screenshots
+I recommend checking the README files for each platform branch to find platform specific information on writing and running tests: <br>
+[Click here for Android](https://github.com/madison-vincent/DemoAppiumFramework/blob/androidFramework/README.md) <br>
+[Click here for iOS](https://github.com/madison-vincent/DemoAppiumFramework/tree/iOSFramework#readme) <br>
+[Click here for Desktop/Web](https://github.com/madison-vincent/DemoAppiumFramework/tree/webFramework#readme)
 
 ## Contributing
 
